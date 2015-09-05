@@ -10,16 +10,44 @@
   <title> {{ .Title }} {{if ne .Title .Site.Title}} &middot; {{ .Site.Title }} {{end}}</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/bootstrap-pagination.css">
-  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/poole.css">
-  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/syntax.css">
-  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/hyde.css">
-  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlightjs.css">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-pagination.css">
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/highlightjs.css">
+  <link rel="stylesheet" href="/css/abril_fatface.css">
+  <link rel="stylesheet" href="/css/solarized_dark.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/raleway.css">
 
   <!-- JS -->
-  <script src="{{ .Site.BaseUrl }}/js/highlight.js"></script>
+  <script src="/js/highlight.js"></script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+  </script>
 
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
@@ -28,11 +56,8 @@
   <!-- RSS -->
   <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-  <link href='//fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
-
-  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <!-- Fonts -->
+  <script src="/js/webfont.js"></script>
   <script>
     WebFont.load({
       google: {
@@ -42,6 +67,7 @@
     hljs.initHighlightingOnLoad();
   </script>
 
+  <!-- Anayltics -->
   {{ with .Site.Params.googleAnalytics }}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
