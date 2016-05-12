@@ -2,14 +2,14 @@
   <div class="container sidebar-sticky">
 
     <div class="sidebar-about">
-      <h1 class="brand"><a href="{{.Site.BaseUrl}}">{{ .Site.Author.name }}</a></h1>
+      <h1 class="brand"><a href="{{.Site.BaseURL}}">{{ .Site.Author.name }}</a></h1>
       <p class="lead">
         {{ with .Site.Params.description }} {{.}} {{end}}
       </p>
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="{{.Site.BaseUrl}}/blog/">Blog Posts</a></li>
+      <li><a href="{{.Site.BaseURL}}/blog/">Blog Posts</a></li>
       {{ range .Site.Menus.main }}
         <li><a href="{{.Url}}">{{ .Name }} </a></li>
       {{end}}
